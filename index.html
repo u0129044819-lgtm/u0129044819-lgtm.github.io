@@ -3,65 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nazwa Twojej Firmy | Profesjonalne Usługi</title>
+    <title>VNT-SHOP | Zweryfikowane Konta Vinted i OLX</title>
     <style>
         :root {
-            --primary: #2563eb;
-            --dark: #1e293b;
-            --light: #f8fafc;
-            --text: #334155;
+            --bg-dark: #0f172a;
+            --bg-card: #1e293b;
+            --accent-purple: #7c3aed;
+            --accent-blue: #06b6d4;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --success: #10b981;
         }
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', system-ui, sans-serif; scroll-behavior: smooth; }
-        body { color: var(--text); background: #fff; line-height: 1.6; }
+        body { color: var(--text-main); background: var(--bg-dark); line-height: 1.6; }
         
         /* Nawigacja */
-        header { background: white; box-shadow: 0 2px 4px rgba(0,0,0,0.1); position: fixed; width: 100%; top: 0; z-index: 1000; }
-        .nav-container { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; }
-        .logo { font-size: 1.5rem; font-weight: bold; color: var(--primary); text-decoration: none; }
-        nav a { margin-left: 1.5rem; text-decoration: none; color: var(--dark); font-weight: 500; transition: color 0.3s; }
-        nav a:hover { color: var(--primary); }
+        header { background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.05); position: fixed; width: 100%; top: 0; z-index: 1000; }
+        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 2rem; }
+        .logo { font-size: 1.6rem; font-weight: 800; background: linear-gradient(to right, var(--accent-blue), var(--accent-purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-decoration: none; letter-spacing: 1px; }
+        nav a { margin-left: 2rem; text-decoration: none; color: var(--text-main); font-weight: 500; transition: color 0.3s; }
+        nav a:hover { color: var(--accent-blue); }
 
-        /* Sekcja Główna */
-        .hero { padding: 8rem 2rem 5rem; background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%); text-align: center; }
+        /* Sekcja Hero */
+        .hero { padding: 10rem 2rem 6rem; text-align: center; background: radial-gradient(circle at top, rgba(124, 58, 237, 0.15) 0%, transparent 60%); }
         .hero-content { max-width: 800px; margin: 0 auto; }
-        .hero h1 { font-size: 3rem; color: var(--dark); margin-bottom: 1rem; line-height: 1.2; }
-        .hero p { font-size: 1.25rem; color: #475569; margin-bottom: 2rem; }
-        .btn { display: inline-block; background: var(--primary); color: white; padding: 0.75rem 2rem; border-radius: 5px; text-decoration: none; font-weight: bold; transition: opacity 0.3s; }
-        .btn:hover { opacity: 0.9; }
+        .hero h1 { font-size: 3.5rem; font-weight: 800; margin-bottom: 1.5rem; line-height: 1.1; letter-spacing: -1px; }
+        .hero h1 span { background: linear-gradient(to right, var(--accent-blue), var(--accent-purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero p { font-size: 1.25rem; color: var(--text-muted); margin-bottom: 2.5rem; max-width: 600px; margin-inline: auto; }
+        .btn { display: inline-block; background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple)); color: white; padding: 0.9rem 2.5rem; border-radius: 8px; text-decoration: none; font-weight: bold; box-shadow: 0 4px 20px rgba(124, 58, 237, 0.3); transition: all 0.3s; }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 25px rgba(124, 58, 237, 0.5); }
+
+        /* Sekcja Zaufania */
+        .trust-badges { display: flex; justify-content: center; gap: 3rem; margin-top: 4rem; flex-wrap: wrap; }
+        .badge { display: flex; align-items: center; gap: 0.5rem; color: var(--text-muted); font-size: 0.95rem; background: rgba(255,255,255,0.02); padding: 0.5rem 1rem; border-radius: 20px; border: 1px solid rgba(255,255,255,0.05); }
+        .badge span { color: var(--success); font-weight: bold; }
 
         /* Sekcje Ogólne */
-        section { padding: 5rem 2rem; max-width: 1100px; margin: 0 auto; }
-        section h2 { text-align: center; font-size: 2.25rem; color: var(--dark); margin-bottom: 3rem; position: relative; }
-        section h2::after { content: ''; display: block; width: 50px; height: 4px; background: var(--primary); margin: 0.5rem auto 0; border-radius: 2px; }
+        section { padding: 6rem 2rem; max-width: 1200px; margin: 0 auto; }
+        section h2 { text-align: center; font-size: 2.5rem; margin-bottom: 4rem; font-weight: 800; }
+        section h2 span { color: var(--accent-blue); }
 
-        /* Siatka Usług */
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-        .service-card { background: var(--light); padding: 2.5rem 2rem; border-radius: 8px; border: 1px solid #e2e8f0; transition: transform 0.3s; }
-        .service-card:hover { transform: translateY(-5px); }
-        .service-card h3 { margin-bottom: 1rem; color: var(--dark); }
+        /* Gryf i Sklep (Produkty) */
+        .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; }
+        .product-card { background: var(--bg-card); border-radius: 16px; border: 1px solid rgba(255,255,255,0.05); overflow: hidden; transition: all 0.3s; display: flex; flex-direction: column; }
+        .product-card:hover { transform: translateY(-5px); border-color: rgba(6, 182, 212, 0.4); box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+        .product-header { padding: 2rem; background: rgba(0,0,0,0.15); border-bottom: 1px solid rgba(255,255,255,0.03); }
+        .tag { display: inline-block; padding: 0.25rem 0.75rem; border-radius: 50px; font-size: 0.8rem; font-weight: bold; text-transform: uppercase; margin-bottom: 1rem; }
+        .tag.vinted { background: rgba(6, 182, 212, 0.15); color: var(--accent-blue); }
+        .tag.olx { background: rgba(249, 115, 22, 0.15); color: #f97316; }
+        .product-card h3 { font-size: 1.4rem; margin-bottom: 0.5rem; }
+        .price { font-size: 2rem; font-weight: 800; color: var(--text-main); }
+        .price span { font-size: 1rem; color: var(--text-muted); font-weight: 400; }
+        
+        .product-features { padding: 2rem; flex-grow: 1; list-style: none; }
+        .product-features li { margin-bottom: 0.8rem; color: var(--text-muted); display: flex; align-items: center; gap: 0.6rem; font-size: 0.95rem; }
+        .product-features li::before { content: '✓'; color: var(--success); font-weight: bold; }
+        
+        .product-footer { padding: 0 2rem 2rem; }
+        .btn-buy { display: block; text-align: center; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: var(--text-main); padding: 0.8rem; border-radius: 8px; text-decoration: none; font-weight: bold; transition: all 0.3s; }
+        .btn-buy:hover { background: var(--text-main); color: var(--bg-dark); }
 
-        /* O Nas */
-        .about-content { display: flex; flex-wrap: wrap; gap: 3rem; align-items: center; }
-        .about-text { flex: 1; min-width: 300px; }
-        .about-text p { margin-bottom: 1rem; }
+        /* O Nas / Dlaczego my */
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
+        .feature-card { background: rgba(255,255,255,0.02); padding: 2.5rem 2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.03); }
+        .feature-card h3 { color: var(--accent-blue); margin-bottom: 1rem; font-size: 1.25rem; }
+        .feature-card p { color: var(--text-muted); font-size: 0.95rem; }
 
         /* Kontakt */
-        .contact-container { display: flex; flex-wrap: wrap; gap: 3rem; }
-        .contact-info { flex: 1; min-width: 300px; }
-        .contact-info h3 { margin-bottom: 1rem; }
-        .contact-info ul { list-style: none; }
-        .contact-info li { margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
-        form { flex: 1; min-width: 300px; display: flex; flex-direction: column; gap: 1rem; }
-        input, textarea { padding: 0.75rem; border: 1px solid #cbd5e1; border-radius: 5px; font-size: 1rem; }
-        textarea { height: 150px; resize: vertical; }
+        .contact-container { max-width: 600px; margin: 0 auto; text-align: center; background: var(--bg-card); padding: 3rem; border-radius: 16px; border: 1px solid rgba(255,255,255,0.05); }
+        .contact-container p { color: var(--text-muted); margin-bottom: 2rem; }
+        .telegram-link { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 1.2rem; color: var(--accent-blue); text-decoration: none; font-weight: bold; border: 1px dashed rgba(6, 182, 212, 0.3); padding: 0.75rem 1.5rem; border-radius: 8px; transition: all 0.3s; }
+        .telegram-link:hover { background: rgba(6, 182, 212, 0.05); }
 
         /* Stopka */
-        footer { background: var(--dark); color: white; text-align: center; padding: 2rem; margin-top: 5rem; }
+        footer { background: #0b0f19; text-align: center; padding: 2rem; border-top: 1px solid rgba(255,255,255,0.05); color: var(--text-muted); font-size: 0.9rem; }
 
         @media (max-width: 768px) {
-            .nav-container { flex-direction: column; gap: 1rem; }
-            nav a { margin: 0 0.75rem; }
-            .hero h1 { font-size: 2.25rem; }
+            .hero h1 { font-size: 2.5rem; }
+            .nav-container { padding: 1rem; }
+            nav { display: none; } /* Uproszczenie na mobile */
         }
     </style>
 </head>
@@ -69,76 +89,76 @@
 
     <header>
         <div class="nav-container">
-            <a href="#" class="logo">NAZWA FIRMY</a>
+            <a href="#" class="logo">ACC-STORE</a>
             <nav>
-                <a href="#uslugi">Oferta</a>
-                <a href="#onas">O nas</a>
-                <a href="#kontakt">Kontakt</a>
+                <a href="#sklep">Konta Vinted/OLX</a>
+                <a href="#bezpieczenstwo">Gwarancja</a>
+                <a href="#kontakt">Złóż zamówienie</a>
             </nav>
         </div>
     </header>
 
     <section class="hero">
         <div class="hero-content">
-            <h1>Nowoczesne rozwiązania dla Twojego biznesu</h1>
-            <p>Świadczymy profesjonalne usługi najwyższej jakości. Pomożemy Ci zrealizować Twoje cele szybko, sprawnie i w rozsądnej cenie.</p>
-            <a href="#kontakt" class="btn">Skontaktuj się</a>
-        </div>
-    </section>
-
-    <section id="uslugi">
-        <h2>Nasza Oferta</h2>
-        <div class="services-grid">
-            <div class="service-card">
-                <h3>Usługa Pierwsza</h3>
-                <p>Krótki, profesjonalny opis pierwszej kluczowej usługi, którą oferuje Twoja firma. Wyjaśnij korzyści dla klienta.</p>
-            </div>
-            <div class="service-card">
-                <h3>Usługa Druga</h3>
-                <p>Opis drugiej usługi. Skup się na tym, co wyróżnia Cię na tle konkurencji i dlaczego warto wybrać właśnie Ciebie.</p>
-            </div>
-            <div class="service-card">
-                <h3>Usługa Trzecia</h3>
-                <p>Opis trzeciej usługi. Możesz tu wpisać doradztwo, wsparcie techniczne lub dowolny inny element Twojej działalności.</p>
+            <h1>Zweryfikowane Konta <span>Vinted & OLX</span></h1>
+            <p>Błyskawiczny start sprzedaży bez blokad. Oferujemy w pełni przygotowane, bezpieczne konta z historią i bez ryzyka.</p>
+            <a href="#sklep" class="btn">Zobacz dostępne produkty</a>
+            
+            <div class="trust-badges">
+                <div class="badge">Błyskawiczna dostawa <span>&lt; 5 min</span></div>
+                <div class="badge">Pełna weryfikacja <span>100%</span></div>
+                <div class="badge">Gwarancja bezpiecznego zakupu</div>
             </div>
         </div>
     </section>
 
-    <section id="onas" style="background: var(--light);">
-        <div class="about-content">
-            <div class="about-text">
-                <h2>O Naszej Firmie</h2>
-                <p>Jesteśmy zespołem doświadczonych specjalistów, którzy z pasją podchodzą do każdego powierzonego zadania. Nasze doświadczenie pozwala nam świadczyć usługi na najwyższym poziomie.</p>
-                <p>Do każdego klienta podchodzimy indywidualnie, dopasowując rozwiązania do jego realnych potrzeb oraz budżetu. Zaufaj profesjonalistom w swojej branży.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="kontakt">
-        <h2>Kontakt</h2>
-        <div class="contact-container">
-            <div class="contact-info">
-                <h3>Dane firmy</h3>
-                <p style="margin-bottom: 1.5rem;">Masz pytania? Chcesz otrzymać darmową wycenę? Skontaktuj się z nami już dziś!</p>
-                <ul>
-                    <li>📍 Adres: ul. Przykładowa 12, 00-000 Warszawa</li>
-                    <li>📞 Telefon: +48 123 456 789</li>
-                    <li>✉️ E-mail: kontakt@twojadomena.pl</li>
+    <section id="sklep">
+        <h2>Dostępne <span>Produkty</span></h2>
+        <div class="products-grid">
+            
+            <!-- Produkt 1 -->
+            <div class="product-card">
+                <div class="product-header">
+                    <span class="tag vinted">Vinted</span>
+                    <h3>Konto Vinted Stażowe</h3>
+                    <div class="price">149 PLN <span>/ szt.</span></div>
+                </div>
+                <ul class="product-features">
+                    <li>Konto założone ponad 6 miesięcy temu</li>
+                    <li>Pełna weryfikacja SMS oraz E-mail</li>
+                    <li>Czysta historia, brak jakichkowolwiek ostrzeżeń</li>
+                    <li>W zestawie dedykowany adres e-mail</li>
+                    <li>Idealne pod natychmiastowy start</li>
                 </ul>
+                <div class="product-footer">
+                    <a href="#kontakt" class="btn-buy">Kup teraz</a>
+                </div>
             </div>
-            <!-- Formularz kontaktowy przesyła wiadomości na darmowy system Formspree (opcjonalnie) -->
-            <form action="#" method="POST">
-                <input type="text" name="name" placeholder="Twoje imię i nazwisko" required>
-                <input type="email" name="email" placeholder="Twój adres e-mail" required>
-                <textarea name="message" placeholder="Treść wiadomości..." required></textarea>
-                <button type="submit" class="btn" style="border: none; cursor: pointer;">Wyślij wiadomość</button>
-            </form>
-        </div>
-    </section>
 
-    <footer>
-        <p>&copy; 2026 Nazwa Firmy. Wszelkie prawa zastrzeżone.</p>
-    </footer>
+            <!-- Produkt 2 -->
+            <div class="product-card">
+                <div class="product-header">
+                    <span class="tag olx">OLX</span>
+                    <h3>Konto OLX Biznes / Premium</h3>
+                    <div class="price">199 PLN <span>/ szt.</span></div>
+                </div>
+                <ul class="product-features">
+                    <li>Pełna weryfikacja profilu (SMS)</li>
+                    <li>Konto rozgrzane, gotowe do wystawiania ogłoszeń</li>
+                    <li>Wysoki współczynnik odpowiedzi i zaufania</li>
+                    <li>Brak blokad regionalnych</li>
+                    <li>Przekazujemy pełen dostęp do konta i poczty</li>
+                </ul>
+                <div class="product-footer">
+                    <a href="#kontakt" class="btn-buy">Kup teraz</a>
+                </div>
+            </div>
 
-</body>
-</html>
+            <!-- Produkt 3 -->
+            <div class="product-card">
+                <div class="product-header">
+                    <span class="tag vinted">Vinted</span>
+                    <h3>Konto Vinted z Opiniami</h3>
+                    <div class="price">299 PLN <span>/ szt.</span></div>
+                </div>
+                <ul class="product-features">

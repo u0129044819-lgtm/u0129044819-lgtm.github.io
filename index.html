@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ACC-STORE | Profesjonalne Konta Vinted, OLX & Rozwiązania Anty-Ban</title>
+    <title>ACC-STORE | Profesjonalne Konta Vinted, OLX & Anty-Ban</title>
     <style>
         :root {
             --bg-main: #0b0f19;
@@ -15,41 +15,27 @@
             --text-muted: #94a3b8;
             --success: #10b981;
             --warning: #f59e0b;
-            --danger: #ef4444;
         }
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', system-ui, sans-serif; scroll-behavior: smooth; }
         body { color: var(--text-main); background: var(--bg-main); line-height: 1.6; }
-        
         header { background: rgba(8, 11, 18, 0.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.05); position: fixed; width: 100%; top: 0; z-index: 1000; }
         .nav-container { max-width: 1300px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 2rem; }
         .logo { font-size: 1.7rem; font-weight: 900; background: linear-gradient(to right, var(--accent-cyan), var(--accent-purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-decoration: none; letter-spacing: 1px; }
         nav a { margin-left: 2rem; text-decoration: none; color: var(--text-main); font-weight: 500; transition: color 0.3s; }
         nav a:hover { color: var(--accent-cyan); }
-
         .hero { padding: 11rem 2rem 6rem; text-align: center; background: radial-gradient(circle at top, rgba(139, 92, 246, 0.15) 0%, transparent 65%); }
         .hero h1 { font-size: 3.8rem; font-weight: 800; margin-bottom: 1.5rem; line-height: 1.1; letter-spacing: -1px; }
         .hero h1 span { background: linear-gradient(to right, var(--accent-cyan), var(--accent-purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .hero p { font-size: 1.3rem; color: var(--text-muted); margin-bottom: 2.5rem; max-width: 700px; margin-inline: auto; }
         .btn { display: inline-block; background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple)); color: white; padding: 1rem 2.5rem; border-radius: 8px; text-decoration: none; font-weight: bold; box-shadow: 0 4px 20px rgba(139, 92, 246, 0.3); transition: all 0.3s; }
         .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 25px rgba(139, 92, 246, 0.5); }
-
         .store-section { padding: 6rem 2rem; max-width: 1300px; margin: 0 auto; }
-        .section-title { text-align: center; font-size: 2.5rem; font-weight: 800; margin-bottom: 1.5rem; }
+        .section-title { text-align: center; font-size: 2.5rem; font-weight: 800; margin-bottom: 3rem; }
         .section-title span { color: var(--accent-cyan); }
-        .section-desc { text-align: center; color: var(--text-muted); max-width: 600px; margin: 0 auto 3rem; }
-
-        /* Filtry Sklepu */
-        .filter-container { display: flex; justify-content: center; gap: 1rem; margin-bottom: 4rem; flex-wrap: wrap; }
-        .filter-btn { background: var(--bg-card); border: 1px solid rgba(255,255,255,0.05); color: var(--text-main); padding: 0.6rem 1.5rem; border-radius: 30px; cursor: pointer; font-weight: 600; transition: all 0.3s; }
-        .filter-btn.active, .filter-btn:hover { background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple)); border-color: transparent; box-shadow: 0 4px 15px rgba(6, 182, 212, 0.2); }
-
-        /* Siatka Produktów (Zoptymalizowana jak profesjonalny sklep) */
-        .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 2.5rem; }
+        .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2.5rem; }
         .product-card { background: var(--bg-card); border-radius: 16px; border: 1px solid rgba(255,255,255,0.05); overflow: hidden; transition: all 0.3s; display: flex; flex-direction: column; }
         .product-card:hover { transform: translateY(-5px); border-color: rgba(6, 182, 212, 0.3); box-shadow: 0 15px 35px rgba(0,0,0,0.4); }
-        
-        .product-header { padding: 2rem; background: rgba(0,0,0,0.2); border-bottom: 1px solid rgba(255,255,255,0.05); position: relative; }
-        .badge-status { position: absolute; top: 2rem; right: 2rem; background: rgba(16, 185, 129, 0.15); color: var(--success); padding: 0.25rem 0.75rem; border-radius: 30px; font-size: 0.75rem; font-weight: bold; }
+        .product-header { padding: 2rem; background: rgba(0,0,0,0.2); border-bottom: 1px solid rgba(255,255,255,0.05); }
         .tag { display: inline-block; padding: 0.25rem 0.75rem; border-radius: 50px; font-size: 0.8rem; font-weight: bold; text-transform: uppercase; margin-bottom: 0.75rem; }
         .tag.vinted { background: rgba(6, 182, 212, 0.15); color: var(--accent-cyan); }
         .tag.olx { background: rgba(249, 115, 22, 0.15); color: #f97316; }
@@ -57,46 +43,37 @@
         .product-card h3 { font-size: 1.4rem; margin-bottom: 0.5rem; }
         .price-box { display: flex; align-items: baseline; gap: 0.5rem; }
         .price { font-size: 2.2rem; font-weight: 800; color: #fff; }
-        .price span { font-size: 1rem; color: var(--text-muted); font-weight: 400; }
-
+        .price span { font-size: 1rem; color: var(--text-muted); }
         .product-body { padding: 2rem; flex-grow: 1; }
         .features-list { list-style: none; margin-bottom: 1.5rem; }
         .features-list li { margin-bottom: 0.6rem; color: #e2e8f0; display: flex; align-items: center; gap: 0.6rem; font-size: 0.95rem; }
         .features-list li::before { content: '✓'; color: var(--success); font-weight: bold; }
-
-        /* Sekcja Opisu Technicznego / Ostrzeżeń wewnątrz karty */
         .tech-notice { background: rgba(8, 11, 18, 0.5); padding: 1.2rem; border-radius: 8px; border-left: 4px solid var(--warning); margin-top: 1rem; }
-        .tech-notice h4 { font-size: 0.9rem; color: var(--warning); margin-bottom: 0.4rem; text-transform: uppercase; letter-spacing: 0.5px; }
+        .tech-notice h4 { font-size: 0.9rem; color: var(--warning); margin-bottom: 0.4rem; text-transform: uppercase; }
         .tech-notice p { font-size: 0.85rem; color: var(--text-muted); }
-
         .product-footer { padding: 0 2rem 2rem; }
         .btn-buy { display: block; text-align: center; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); color: var(--text-main); padding: 0.9rem; border-radius: 8px; text-decoration: none; font-weight: 700; transition: all 0.3s; }
-        .btn-buy:hover { background: var(--text-main); color: var(--bg-main); box-shadow: 0 4px 15px rgba(255,255,255,0.1); }
-
-        /* Sekcja Wiedzy Anty-Ban (Budowanie potężnego zaufania) */
+        .btn-buy:hover { background: var(--text-main); color: var(--bg-main); }
         .knowledge-section { background: var(--bg-darker); border-top: 1px solid rgba(255,255,255,0.03); border-bottom: 1px solid rgba(255,255,255,0.03); padding: 6rem 2rem; }
         .know-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2.5rem; max-width: 1300px; margin: 0 auto; }
         .know-card { background: var(--bg-card); padding: 2.5rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.02); }
         .know-card h3 { color: var(--accent-cyan); margin-bottom: 1rem; font-size: 1.3rem; }
         .know-card p { color: var(--text-muted); font-size: 0.95rem; }
-
         .contact-box { max-width: 700px; margin: 0 auto; text-align: center; background: var(--bg-card); padding: 4rem 2rem; border-radius: 20px; border: 1px solid rgba(255,255,255,0.05); }
-        .contact-box p { color: var(--text-muted); margin-bottom: 2rem; font-size: 1.1rem; }
+        .contact-box p { color: var(--text-muted); margin-bottom: 2rem; }
         .telegram-btn { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 1.3rem; color: var(--accent-cyan); text-decoration: none; font-weight: bold; border: 2px dashed rgba(6, 182, 212, 0.4); padding: 1rem 2rem; border-radius: 10px; transition: all 0.3s; }
-        .telegram-btn:hover { background: rgba(6, 182, 212, 0.08); transform: scale(1.02); }
-
+        .telegram-btn:hover { background: rgba(6, 182, 212, 0.08); }
         footer { background: var(--bg-darker); text-align: center; padding: 2.5rem; color: var(--text-muted); font-size: 0.85rem; border-top: 1px solid rgba(255,255,255,0.05); }
     </style>
 </head>
 <body>
-
     <header>
         <div class="nav-container">
             <a href="#" class="logo">ACC-STORE</a>
             <nav>
-                <a href="#sklep">Przeglądaj Sklep</a>
-                <a href="#poradnik">Procedura Anty-Ban</a>
-                <a href="#kontakt">Zamówienie</a>
+                <a href="#sklep">Sklep</a>
+                <a href="#poradnik">Anty-Ban</a>
+                <a href="#kontakt">Kontakt</a>
             </nav>
         </div>
     </header>
@@ -104,33 +81,57 @@
     <section class="hero">
         <div class="hero-content">
             <h1>Zautomatyzowane Konta <span>Vinted & OLX</span></h1>
-            <p>Największa hurtownia czystych, zweryfikowanych i wygrzanych profili sprzedażowych w Polsce. Omijaj blokady algorytmów dzięki naszej technologii przygotowania kont.</p>
+            <p>Największa hurtownia zweryfikowanych i wygrzanych profili sprzedażowych. Omiń blokady algorytmów na zbanowanych urządzeniach.</p>
             <a href="#sklep" class="btn">Wejdź do sklepu</a>
         </div>
     </section>
 
     <section id="sklep" class="store-section">
         <h2 class="section-title">Nasz <span>Asortyment</span></h2>
-        <p class="section-desc">Wszystkie konta są tworzone ręcznie na unikalnych urządzeniach. Wybierz odpowiedni wariant dla swojej skali sprzedaży.</p>
-        
-        <div class="filter-container">
-            <button class="filter-btn active">Wszystkie produkty</button>
-            <button class="filter-btn">Konta Vinted</button>
-            <button class="filter-btn">Konta OLX</button>
-            <button class="filter-btn">Ochrona & Prywatność</button>
-        </div>
-
         <div class="products-grid">
             
-            <!-- KARTA 1: Vinted Nowe do rozgrzania -->
+            <!-- KARTA 1 -->
             <div class="product-card">
                 <div class="product-header">
                     <span class="tag vinted">Vinted</span>
-                    <span class="badge-status">Dostępny</span>
                     <h3>Konto Vinted (Nowe, Do Rozgrzania)</h3>
                     <div class="price-box"><div class="price">79 PLN</div><span>/ szt.</span></div>
                 </div>
                 <div class="product-body">
                     <ul class="features-list">
-                        <li>Konto świeżo zarejestrowane (czysta karta)</li>
-                        <li>Pełna weryfikacja początkowa (E-mail + SMS)</li>
+                        <li>Świeża rejestracja na czystym urządzeniu</li>
+                        <li>Weryfikacja E-mail + SMS (aktywne)</li>
+                        <li>Dedykowana skrzynka pocztowa w zestawie</li>
+                    </ul>
+                    <div class="tech-notice">
+                        <h4>⚠️ BLOKADA NA IP URZĄDZENIA?</h4>
+                        <p>Nawet jeśli masz zbanowane IP domowe lub sprzęt, **możesz bezpiecznie korzystać z tego konta**. Musisz jednak bezwzględnie zmienić IP przed logowaniem (np. przełączyć na internet mobilny LTE) i wyczyścić cache przeglądarki, by algorytm nie powiązał starego bana z nowym kontem.</p>
+                    </div>
+                </div>
+                <div class="product-footer"><a href="#kontakt" class="btn-buy">Kup teraz</a></div>
+            </div>
+
+            <!-- KARTA 2 -->
+            <div class="product-card">
+                <div class="product-header">
+                    <span class="tag vinted">Vinted</span>
+                    <h3>Konto Vinted Stażowe (Premium)</h3>
+                    <div class="price-box"><div class="price">159 PLN</div><span>/ szt.</span></div>
+                </div>
+                <div class="product-body">
+                    <ul class="features-list">
+                        <li>Wiek profilu: minimum 3 miesiące</li>
+                        <li>Naturalna historia i wygrzane ruchy algorytmu</li>
+                        <li>Wysoka odporność na natychmiastowe wystawianie</li>
+                    </ul>
+                    <div class="tech-notice">
+                        <h4>⚙️ OCHRONA ANTY-FRUSTRACYJNA</h4>
+                        <p>Konto toleruje więcej działań i ma wyższe limity niż nowe profile. Doskonałe pod masowy listing towarów przy zachowaniu podstawowych zasad czyszczenia ciasteczek (cookies).</p>
+                    </div>
+                </div>
+                <div class="product-footer"><a href="#kontakt" class="btn-buy">Kup teraz</a></div>
+            </div>
+
+            <!-- KARTA 3 -->
+            <div class="product-card">
+                <div class="product-header">

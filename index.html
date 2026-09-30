@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nazwa Twojej Firmy | Profesjonalne Usługi</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --text: #334155;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', system-ui, sans-serif; scroll-behavior: smooth; }
+        body { color: var(--text); background: #fff; line-height: 1.6; }
+        
+        /* Nawigacja */
+        header { background: white; box-shadow: 0 2px 4px rgba(0,0,0,0.1); position: fixed; width: 100%; top: 0; z-index: 1000; }
+        .nav-container { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; }
+        .logo { font-size: 1.5rem; font-weight: bold; color: var(--primary); text-decoration: none; }
+        nav a { margin-left: 1.5rem; text-decoration: none; color: var(--dark); font-weight: 500; transition: color 0.3s; }
+        nav a:hover { color: var(--primary); }
+
+        /* Sekcja Główna */
+        .hero { padding: 8rem 2rem 5rem; background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%); text-align: center; }
+        .hero-content { max-width: 800px; margin: 0 auto; }
+        .hero h1 { font-size: 3rem; color: var(--dark); margin-bottom: 1rem; line-height: 1.2; }
+        .hero p { font-size: 1.25rem; color: #475569; margin-bottom: 2rem; }
+        .btn { display: inline-block; background: var(--primary); color: white; padding: 0.75rem 2rem; border-radius: 5px; text-decoration: none; font-weight: bold; transition: opacity 0.3s; }
+        .btn:hover { opacity: 0.9; }
+
+        /* Sekcje Ogólne */
+        section { padding: 5rem 2rem; max-width: 1100px; margin: 0 auto; }
+        section h2 { text-align: center; font-size: 2.25rem; color: var(--dark); margin-bottom: 3rem; position: relative; }
+        section h2::after { content: ''; display: block; width: 50px; height: 4px; background: var(--primary); margin: 0.5rem auto 0; border-radius: 2px; }
+
+        /* Siatka Usług */
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .service-card { background: var(--light); padding: 2.5rem 2rem; border-radius: 8px; border: 1px solid #e2e8f0; transition: transform 0.3s; }
+        .service-card:hover { transform: translateY(-5px); }
+        .service-card h3 { margin-bottom: 1rem; color: var(--dark); }
+
+        /* O Nas */
+        .about-content { display: flex; flex-wrap: wrap; gap: 3rem; align-items: center; }
+        .about-text { flex: 1; min-width: 300px; }
+        .about-text p { margin-bottom: 1rem; }
+
+        /* Kontakt */
+        .contact-container { display: flex; flex-wrap: wrap; gap: 3rem; }
+        .contact-info { flex: 1; min-width: 300px; }
+        .contact-info h3 { margin-bottom: 1rem; }
+        .contact-info ul { list-style: none; }
+        .contact-info li { margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+        form { flex: 1; min-width: 300px; display: flex; flex-direction: column; gap: 1rem; }
+        input, textarea { padding: 0.75rem; border: 1px solid #cbd5e1; border-radius: 5px; font-size: 1rem; }
+        textarea { height: 150px; resize: vertical; }
+
+        /* Stopka */
+        footer { background: var(--dark); color: white; text-align: center; padding: 2rem; margin-top: 5rem; }
+
+        @media (max-width: 768px) {
+            .nav-container { flex-direction: column; gap: 1rem; }
+            nav a { margin: 0 0.75rem; }
+            .hero h1 { font-size: 2.25rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">NAZWA FIRMY</a>
+            <nav>
+                <a href="#uslugi">Oferta</a>
+                <a href="#onas">O nas</a>
+                <a href="#kontakt">Kontakt</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Nowoczesne rozwiązania dla Twojego biznesu</h1>
+            <p>Świadczymy profesjonalne usługi najwyższej jakości. Pomożemy Ci zrealizować Twoje cele szybko, sprawnie i w rozsądnej cenie.</p>
+            <a href="#kontakt" class="btn">Skontaktuj się</a>
+        </div>
+    </section>
+
+    <section id="uslugi">
+        <h2>Nasza Oferta</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Usługa Pierwsza</h3>
+                <p>Krótki, profesjonalny opis pierwszej kluczowej usługi, którą oferuje Twoja firma. Wyjaśnij korzyści dla klienta.</p>
+            </div>
+            <div class="service-card">
+                <h3>Usługa Druga</h3>
+                <p>Opis drugiej usługi. Skup się na tym, co wyróżnia Cię na tle konkurencji i dlaczego warto wybrać właśnie Ciebie.</p>
+            </div>
+            <div class="service-card">
+                <h3>Usługa Trzecia</h3>
+                <p>Opis trzeciej usługi. Możesz tu wpisać doradztwo, wsparcie techniczne lub dowolny inny element Twojej działalności.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="onas" style="background: var(--light);">
+        <div class="about-content">
+            <div class="about-text">
+                <h2>O Naszej Firmie</h2>
+                <p>Jesteśmy zespołem doświadczonych specjalistów, którzy z pasją podchodzą do każdego powierzonego zadania. Nasze doświadczenie pozwala nam świadczyć usługi na najwyższym poziomie.</p>
+                <p>Do każdego klienta podchodzimy indywidualnie, dopasowując rozwiązania do jego realnych potrzeb oraz budżetu. Zaufaj profesjonalistom w swojej branży.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="kontakt">
+        <h2>Kontakt</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Dane firmy</h3>
+                <p style="margin-bottom: 1.5rem;">Masz pytania? Chcesz otrzymać darmową wycenę? Skontaktuj się z nami już dziś!</p>
+                <ul>
+                    <li>📍 Adres: ul. Przykładowa 12, 00-000 Warszawa</li>
+                    <li>📞 Telefon: +48 123 456 789</li>
+                    <li>✉️ E-mail: kontakt@twojadomena.pl</li>
+                </ul>
+            </div>
+            <!-- Formularz kontaktowy przesyła wiadomości na darmowy system Formspree (opcjonalnie) -->
+            <form action="#" method="POST">
+                <input type="text" name="name" placeholder="Twoje imię i nazwisko" required>
+                <input type="email" name="email" placeholder="Twój adres e-mail" required>
+                <textarea name="message" placeholder="Treść wiadomości..." required></textarea>
+                <button type="submit" class="btn" style="border: none; cursor: pointer;">Wyślij wiadomość</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Nazwa Firmy. Wszelkie prawa zastrzeżone.</p>
+    </footer>
+
+</body>
+</html>
